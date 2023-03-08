@@ -60,6 +60,7 @@ form, .form__input, .form__input, .form__button {
 	text-transform: uppercase;
 	font-weight: bolder;
 	font-size: 1.05rem;
+	cursor: pointer;
 }
 
 .form__label {

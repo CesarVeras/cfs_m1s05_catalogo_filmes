@@ -8,7 +8,7 @@
 
 - Adicione um botão "cadastrar".
 
-## Exercício 2 [ ]
+## Exercício 2 [x]
 
 - Recupere os valores dos inputs no javascript e crie uma função "**cadastrar**" adicione o Filme na variavel global.
 
