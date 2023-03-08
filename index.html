@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catálogo de Filmes</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Catálogo de Filmes</h1>
+	</header>
+	<section class="cadastro"  data-cadastro>
+		<form>
+			<div class="field">
+				<label for="titulo" class="form__label">Titulo</label>
+				<input type="text" name="titulo" id="titulo" class="form__input">
+			</div>
+			<div class="field">
+				<label for="nota" class="form__label">Nota</label>
+				<input type="number" nome="nota" id="nota" class="form__input" step="0.5" max="5" min="0">
+			</div>
+			</div>
+			<div class="field">
+				<label for="duracao" class="form__label">Duração(minutos)</label>
+				<input type="number" nome="duracao" id="duracao"  class="form__input" step="10">
+			</div>
+			<button type="button" class="form__button">Cadastrar</button>
+		</form>
+	</section>
+</body>
+</html>
