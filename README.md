@@ -21,7 +21,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 	- Crie uma função para verificar o título e se caso for igual mostrar alerta "Já possui um filme com esse mesmo título" e não continua com o cadastro.
 
-## Exercício 3 [ ]
+## Exercício 3 [x]
 
 - Crie uma função para **listar** os filmes cadastrados fazendo a criação dos elementos da DOM.
 

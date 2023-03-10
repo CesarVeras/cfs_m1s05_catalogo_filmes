@@ -11,16 +11,22 @@ body {
 	font-size: 10px;
 	font-family: Helvetica, sans-serif;
 	margin: 0;
-	background-color: hsl(240, 100%, 59%);
 }
 
 h1 {
 	width: 100%;
 	background-color: #EEEEEE;
-	margin: 0 0 1rem 0;
 	padding: 1rem;
-	box-shadow: 0 1px 2px 0px rgba(0 0 0 / 80%);
+	margin: 0;
 	font-size: 1.75rem;
+}
+
+.cadastro { 
+	background-color: hsl(240, 100%, 09%);
+}
+
+.cadastro, .lista {
+	padding: 1rem;
 }
 
 form {
@@ -28,7 +34,6 @@ form {
 	margin-inline: auto;
 	flex-direction: column;
 	color: #FFFFFF;
-	padding: 1rem;
 	font-size: 1.2rem;
 }
 
@@ -61,8 +66,39 @@ form, .form__input, .form__input, .form__button {
 	font-weight: bolder;
 	font-size: 1.05rem;
 	cursor: pointer;
+	margin-bottom: 1rem;
 }
 
 .form__label {
 	margin: 0 0 .25rem .25rem;
+}
+
+.lista {
+	background-color: hsl(240, 71%, 66%);
+}
+
+.grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, 300px);
+}
+
+.card {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	background-color: #EEE;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.card__titulo {
+	font-size: 1.3rem;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.card__duracao {
+	font-size: 1.1rem;
+	font-weight: lighter;
 }
