@@ -26,31 +26,17 @@ const listarFilmes = () => {
 	if (filmes.length === 0) return;
 	gridFilmes.innerHTML = '';
 
-	filmes.forEach((filme) => {
-		let card = document.createElement('div');
-		card.className = 'card';
-
-		let img = document.createElement('img');
-		img.src = 'http://via.placeholder.com/200x300';
-		img.alt = 'Imagem placeholder';
-		card.appendChild(img);
-
-		let cardBody = document.createElement('div');
-		cardBody.className = 'card__body';
-		card.appendChild(cardBody);
-
-		let cardTitulo = document.createElement('p');
-		cardTitulo.className = 'card__titulo';
-		cardTitulo.innerText = filme.titulo;
-		cardBody.appendChild(cardTitulo);
-
-		let cardDuracao = document.createElement('p');
-		cardDuracao.className = 'card__duracao';
-		cardDuracao.innerText = `${filme.duracao}min`;
-		cardBody.appendChild(cardDuracao);
-		
-		gridFilmes.appendChild(card);
-	})
+	filmes.map((filme) => {
+		gridFilmes.innerHTML += `
+			<div class="card">
+				<img src="http://via.placeholder.com/200x300" alt="Imagem placeholder">
+				<div class="card__body">
+					<p class="card__titulo">${filme.titulo}</p>
+					<p class="card__duracao">${filme.duracao}</p>
+				</div>
+			</div>
+		`;
+	});
 };
 
 const cadastrarFilme = (e) => {
