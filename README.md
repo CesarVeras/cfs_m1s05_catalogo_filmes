@@ -27,7 +27,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 - Cada card terá a **img** do filme (fixa ou dinamica), *****o titulo, nota e duração*****.
 
-## Exercício 4 [ ]
+## Exercício 4 [x]
 
 - Crie um input para informar o filme para busca
 

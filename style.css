@@ -1,28 +1,50 @@
-* {
-	box-sizing: border-box;
+:root {
+	--primary-clr: hsl(240, 100%, 09%);
+	--secondary-clr: hsl(240, 71%, 66%);
+	--tertiary-clr: #FFFFFF;
+	--light-clr: #EEEEEE;
 }
 
-input {
-	font-size: inherit;
-	font-family: inherit;
+* {
+	box-sizing: border-box;
 }
 
 body {
 	font-size: 10px;
 	font-family: Helvetica, sans-serif;
 	margin: 0;
+	color: var(--primary-clr);
+}
+
+input, button {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus,
+button:hover {
+	scale: 1.1;
 }
 
 h1 {
 	width: 100%;
-	background-color: #EEEEEE;
+	background-color: var(--light-clr);
 	padding: 1rem;
 	margin: 0;
 	font-size: 1.75rem;
 }
 
+h1:after {
+	content: '🎞️';
+}
+
 .cadastro { 
-	background-color: hsl(240, 100%, 09%);
+	background-color: var(--primary-clr);
 }
 
 .cadastro, .lista {
@@ -33,7 +55,7 @@ form {
 	display: flex;
 	margin-inline: auto;
 	flex-direction: column;
-	color: #FFFFFF;
+	color: var(--primary-clr);
 	font-size: 1.2rem;
 }
 
@@ -47,6 +69,7 @@ form > * {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto 1rem auto;
+	color: var(--tertiary-clr);
 }
 
 form, .form__input, .form__input, .form__button {
@@ -65,8 +88,13 @@ form, .form__input, .form__input, .form__button {
 	text-transform: uppercase;
 	font-weight: bolder;
 	font-size: 1.05rem;
-	cursor: pointer;
 	margin-bottom: 1rem;
+}
+
+.form__button:after {
+	content: '➕';
+	position: relative;
+	top: -1px;
 }
 
 .form__label {
@@ -74,12 +102,14 @@ form, .form__input, .form__input, .form__button {
 }
 
 .lista {
-	background-color: hsl(240, 71%, 66%);
+	background-color: var(--secondary-clr);
+	padding: 2rem 6rem;
 }
 
 .grid {
 	display: grid;
 	gap: 1rem;
+	justify-content: center;
 	grid-template-columns: repeat(auto-fit, 300px);
 }
 
@@ -87,7 +117,7 @@ form, .form__input, .form__input, .form__button {
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
-	background-color: #EEE;
+	background-color: var(--light-clr);
 	border-radius: 10px;
 	overflow: hidden;
 }
@@ -102,3 +132,57 @@ form, .form__input, .form__input, .form__button {
 	font-size: 1.1rem;
 	font-weight: lighter;
 }
+
+.busca {
+	position: relative;
+	display: grid;
+	grid-template-columns: 9fr 1fr 2fr;
+	gap: 0rem;
+	margin-bottom: 3rem;
+	filter: drop-shadow(2px 3px 5px rgba(0 0 0 / .4));
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.busca__input, .busca__pesquisar {
+	height: 2.5rem;
+	font-size: 1.2rem;
+}
+
+.busca__input {
+	text-indent: .5rem;
+	border: 0;
+	grid-column: 1 / span 2;
+}
+
+.busca__limpar {
+	position: absolute;
+	grid-column: 2 / 3;
+	font-size: 1.5rem;
+	line-height: 1;
+	display: grid;
+	place-items: center;
+	justify-self: right;
+	align-self: center;
+	margin-right: .5rem;
+	border: 0;
+	background-color: transparent;
+	color: var(--tertiary-clr);
+}
+
+.busca__limpar[data-visivel="false"] {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.busca__pesquisar {
+	background-color: var(--primary-clr);
+	color: var(--tertiary-clr);
+	border: 0;
+	text-transform: uppercase;
+}
+
+.busca__pesquisar:after {
+	content: '🔎';
+}
+
