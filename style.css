@@ -114,23 +114,53 @@ form, .form__input, .form__input, .form__button {
 }
 
 .card {
-	padding: 1rem;
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--light-clr);
+	padding: 1rem;
 	border-radius: 10px;
 	overflow: hidden;
+	background-color: var(--light-clr);
+}
+
+.card__body {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	height: 26px;
 }
 
 .card__titulo {
 	font-size: 1.3rem;
 	letter-spacing: 1px;
 	font-weight: bold;
+	height: 70px;
+	margin-bottom: 0;
 }
 
 .card__duracao {
 	font-size: 1.1rem;
 	font-weight: lighter;
+	align-self: center;
+	margin: .25rem 0 0 0;
+}
+
+.card__nota {
+	display: flex;
+	width: 50%;
+	flex-direction: row;
+}
+
+.card__nota > * {
+	width: 25px;
+	height: 23px;
+}
+
+.card__favorito {
+	position: absolute;
+	inset: 1rem 1rem auto auto;
+	width: 30px;
+	height: 30px;
 }
 
 .busca {
@@ -145,7 +175,7 @@ form, .form__input, .form__input, .form__button {
 }
 
 .busca__input, .busca__pesquisar {
-	height: 2.5rem;
+	height: 3rem;
 	font-size: 1.2rem;
 }
 
@@ -185,4 +215,3 @@ form, .form__input, .form__input, .form__button {
 .busca__pesquisar:after {
 	content: '🔎';
 }
-

@@ -37,7 +37,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 - Recupere o valor do input da busca e Adicione o evento de digito de letra na função de busca.
 
-## Exercício 5 [ ]
+## Exercício 5 [x]
 
 - Adicione um ícone no card de filme.
 
