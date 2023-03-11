@@ -36,7 +36,7 @@ class Filme {
 		this.duracao = duracao;
 		this.assistido = false;
 		this.favorito = false;
-		this.imagem = 'http://via.placeholder.com/600x300';
+		this.imagem = 'http://via.placeholder.com/200x300';
 	}
 }
 
@@ -106,7 +106,7 @@ const listarFilmes = (array) => {
 			'beforeend',
 			`
 				<div class="card" data-filme="${i}">
-					<img src="http://via.placeholder.com/200x300" alt="Imagem placeholder">
+					<img src="${filme.imagem}" alt="Imagem placeholder">
 					<p class="card__titulo">${filme.titulo}</p>
 					<div class="card__body">
 						<p class="card__duracao">${filme.duracao}min</p>
