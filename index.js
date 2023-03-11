@@ -29,6 +29,18 @@ const coracaoPreenchido = `
 </svg>
 `;
 
+const assistido = `
+	<svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" stroke="grey" viewBox="0 0 24 24" class="card__assistido "data-visivel="false">
+		<path stroke-linecap="round" stroke-width="3px" stroke-linejoin="round" d="M4 12s1.6-5 8-5m0 0c6.4 0 8 5 8 5m-8-5V4m6 1-2 2.5M6 5l2 2.5m7 5.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+	</svg>
+`;
+
+const naoAssistido = `
+	<svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" stroke="grey" viewBox="0 0 24 24" class="card__nao-assistido" data-visivel="true">
+		<path stroke-linecap="round" stroke-width="3px" stroke-linejoin="round" d="M4 10s1.6 5 8 5m0 0c6.4 0 8-5 8-5m-8 5v3m6-1-2-2.5M6 17l2-2.5"/>
+	</svg>
+`;
+
 class Filme {
 	constructor(titulo, nota, duracao) {
 		this.titulo = titulo;
@@ -95,6 +107,18 @@ const alternarFavorito = (elem) => {
 	alternarFavoritoDOM(filme, indice);
 };
 
+const alternarAssistidoDOM = (filme, indice) => {
+	gridFilmes.querySelector(`.card[data-filme="${indice}"] .card__assistido`).dataset.visivel = filme.assistido;
+	gridFilmes.querySelector(`.card[data-filme="${indice}"] .card__nao-assistido`).dataset.visivel = !filme.assistido;
+};
+
+const alternarAssistido = (elem) => {
+	const indice = elem.dataset.filme;
+	const filme = filmes[indice];
+	filme.assistido = !filme.assistido;
+	alternarAssistidoDOM(filme, indice);
+};
+
 const listarFilmes = (array) => {
 	let listaFilmes = array || filmes;
 	if (listaFilmes.length === 0) return;
@@ -106,16 +130,20 @@ const listarFilmes = (array) => {
 			'beforeend',
 			`
 				<div class="card" data-filme="${i}">
+					<span class="card__visto" onclick="alternarAssistido(this)" data-filme="${i}">
+						${assistido}
+						${naoAssistido}
+					</span>
+					<span class="card__favorito" onclick="alternarFavorito(this)" data-filme="${i}">
+						${coracaoPreenchido}
+						${coracaoVazio}
+					</span>
 					<img src="${filme.imagem}" alt="Imagem placeholder">
 					<p class="card__titulo">${filme.titulo}</p>
 					<div class="card__body">
 						<p class="card__duracao">${filme.duracao}min</p>
 						${criarEstrelas(filme)}
 					</div>
-					<span class="card__favorito" onclick="alternarFavorito(this)" data-filme="${i}">
-						${coracaoPreenchido}
-						${coracaoVazio}
-					</span>
 				</div>
 			`) 
 	});

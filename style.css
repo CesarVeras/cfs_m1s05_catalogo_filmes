@@ -22,6 +22,11 @@ input, button {
 	color: inherit;
 }
 
+img, svg {
+	max-width: 100%;
+	user-select: none;
+}
+
 button {
 	cursor: pointer;
 }
@@ -168,17 +173,18 @@ form, .form__input, .form__input, .form__button {
 	pointer-events: none;
 }
 
+.card__visto {
+	background-color: transparent;
+	position: absolute;
+	inset: 1rem auto auto 1rem;
+	scale: 1.5;
+}
+
 :is(.coracao__preenchido, .coracao__vazio) {
 	position: absolute;
 }
 
-:is(.coracao__preenchido, .coracao__vazio, .coracao__preenchido *, .coracao__vazio *)[data-visivel="false"] {
-	visibility: hidden;
-	width: 0;
-	height: 0;
-}
-
-:is(.coracao__preenchido, .coracao__vazio)[data-visivel="false"] {
+[data-visivel="false"] {
 	visibility: hidden;
 	width: 0;
 	height: 0;

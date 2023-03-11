@@ -57,7 +57,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 	- Adicione uma validação se já existir 3 filmes como favorito não faz nada e mostra mensagem "*****Já existem três filmes favoritos*****"
 
-## Exercício 7 [ ]
+## Exercício 7 [x]
 
 - Adicione um ícone no card de filme.
 
