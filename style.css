@@ -161,6 +161,27 @@ form, .form__input, .form__input, .form__button {
 	inset: 1rem 1rem auto auto;
 	width: 30px;
 	height: 30px;
+	cursor: pointer;
+}
+
+.card__favorito * {
+	pointer-events: none;
+}
+
+:is(.coracao__preenchido, .coracao__vazio) {
+	position: absolute;
+}
+
+:is(.coracao__preenchido, .coracao__vazio, .coracao__preenchido *, .coracao__vazio *)[data-visivel="false"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+:is(.coracao__preenchido, .coracao__vazio)[data-visivel="false"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
 }
 
 .busca {

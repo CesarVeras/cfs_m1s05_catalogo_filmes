@@ -18,13 +18,13 @@ const estrelaPreenchida = `
 </svg>`;
 
 const coracaoVazio = `
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 1000">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 1000" class="coracao__vazio" data-visivel="true">
 	<path d="M725.1 48.2c-65.6 0-128.6 26.1-177.6 73.7-18.5 18-34.5 38.4-47.5 61.1-13.1-22.7-29-43.1-47.5-61.2-49-47.5-112-73.6-177.6-73.6C128.8 48.2 10 175.5 10 332c0 105.7 30.7 189.1 102.5 278.9C217 741.5 481.2 940.8 492.4 949.3c2.2 1.8 4.9 2.6 7.6 2.6s5.3-.9 7.6-2.6c11.2-8.4 275.5-207.7 379.9-338.3C959.3 521.1 990 437.7 990 332c0-156.5-118.9-283.8-264.9-283.8z" fill="grey"/>
 </svg>
 `;
 
 const coracaoPreenchido = `
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 1000">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 1000" class="coracao__preenchido" data-visivel="false">
 	<path d="M725.1 48.2c-65.6 0-128.6 26.1-177.6 73.7-18.5 18-34.5 38.4-47.5 61.1-13.1-22.7-29-43.1-47.5-61.2-49-47.5-112-73.6-177.6-73.6C128.8 48.2 10 175.5 10 332c0 105.7 30.7 189.1 102.5 278.9C217 741.5 481.2 940.8 492.4 949.3c2.2 1.8 4.9 2.6 7.6 2.6s5.3-.9 7.6-2.6c11.2-8.4 275.5-207.7 379.9-338.3C959.3 521.1 990 437.7 990 332c0-156.5-118.9-283.8-264.9-283.8z" fill="rgb(245 57 57)"/>
 </svg>
 `;
@@ -35,7 +35,7 @@ class Filme {
 		this.nota = nota;
 		this.duracao = duracao;
 		this.assistido = false;
-		this.favorito = true;
+		this.favorito = false;
 		this.imagem = 'http://via.placeholder.com/600x300';
 	}
 }
@@ -50,6 +50,8 @@ let filmes = [
 	new Filme('Enders Game', 4, 120)
 ];
 
+let favoritosRestantes = 3;
+
 const buscarFilme = (termo) => {
 	const filmesEncontrados = filmes.filter((filme) => filme.titulo.toLowerCase().includes(termo.toLowerCase()));
 
@@ -61,16 +63,36 @@ const verificarJaCadastrado = (titulo) => filmes.some((filme) => titulo.toLowerC
 
 const criarEstrelas = (filme) => {
 	let cardNota = '<div class="card__nota">'
-	for (let i = 0; i < filme.nota; i++) {
-		cardNota += estrelaPreenchida;
-	}
-
-	for (let i = 0; i < 5 - filme.nota; i++) {
-		cardNota += estrelaVazia;
+	for (let i = 0; i < 5; i++) {
+		if (i < filme.nota) {
+			cardNota += estrelaPreenchida;
+		} else {
+			cardNota += estrelaVazia;
+		}
 	}
 	cardNota += '</div>'
 
 	return cardNota;
+};
+
+const alternarFavoritoDOM = (filme, indice) => {
+	gridFilmes.querySelector(`.card[data-filme="${indice}"] .coracao__preenchido`).dataset.visivel = filme.favorito;
+	gridFilmes.querySelector(`.card[data-filme="${indice}"] .coracao__vazio`).dataset.visivel = !filme.favorito;
+};
+
+const alternarFavorito = (elem) => {
+	const indice = elem.dataset.filme;
+	const filme = filmes[indice];
+	if (!filme.favorito && favoritosRestantes > 0) {
+		favoritosRestantes--;
+	} else if (filme.favorito) {
+		favoritosRestantes++;
+	} else {
+		console.log("Já existem três filmes favoritos");
+		return;
+	}
+	filme.favorito = !filme.favorito;
+	alternarFavoritoDOM(filme, indice);
 };
 
 const listarFilmes = (array) => {
@@ -79,18 +101,23 @@ const listarFilmes = (array) => {
 	gridFilmes.innerHTML = '';
 
 	listaFilmes.map((filme, i) => {
-		gridFilmes.innerHTML += `
-			<div class="card" data-filme="${i}">
-				<img src="http://via.placeholder.com/200x300" alt="Imagem placeholder">
-				<p class="card__titulo">${filme.titulo}</p>
-				<div class="card__body">
-					<p class="card__duracao">${filme.duracao}min</p>
-					${criarEstrelas(filme)}
+		// gridFilmes.innerHTML += ;
+		gridFilmes.insertAdjacentHTML(
+			'beforeend',
+			`
+				<div class="card" data-filme="${i}">
+					<img src="http://via.placeholder.com/200x300" alt="Imagem placeholder">
+					<p class="card__titulo">${filme.titulo}</p>
+					<div class="card__body">
+						<p class="card__duracao">${filme.duracao}min</p>
+						${criarEstrelas(filme)}
+					</div>
+					<span class="card__favorito" onclick="alternarFavorito(this)" data-filme="${i}">
+						${coracaoPreenchido}
+						${coracaoVazio}
+					</span>
 				</div>
-				<span class="card__favorito">${filme.favorito ? coracaoPreenchido : coracaoVazio}</span>
-			</div>
-		`;
-		// gridFilmes.querySelector('.card__body').innerHTML = criarEstrelas(filme);
+			`) 
 	});
 };
 

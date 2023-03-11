@@ -43,7 +43,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 - Você precisará de um ícone de estrela/coração com dois tipos um com preenchimento e outro sem preenchimento
 
-## Exercício 6 [ ]
+## Exercício 6 [x]
 
 - Crie uma função para adicionar a propriedade do filme escolhido
 
