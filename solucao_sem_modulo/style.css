@@ -22,10 +22,6 @@ input, button {
 	color: inherit;
 }
 
-input {
-	color: var(--primary-clr);
-}
-
 img, svg {
 	max-width: 100%;
 	user-select: none;
@@ -182,7 +178,6 @@ form, .form__input, .form__input, .form__button {
 	position: absolute;
 	inset: 1rem auto auto 1rem;
 	scale: 1.5;
-	cursor: pointer;
 }
 
 :is(.coracao__preenchido, .coracao__vazio) {

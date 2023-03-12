@@ -65,7 +65,7 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 - Representará se o filme foi assistido ou não
 
-## Exercício 8 [ ]
+## Exercício 8 [x]
 
 - Crie uma função para adicionar a propriedade do filme assistido de acordo com o clique no ícone.
 
@@ -75,17 +75,13 @@ No objeto de cadastro deve ser adicionado duas propriedades favorito do tipo boo
 
 - Se clicar no cíone de um filme assistido torna ele como não assistido que é o estado inicial.
 
-## Exercício 9 [ ]
+## Exercício 9 [x]
 
 **Crie uma função para adicionar a propriedade do filme assistido de acordo com o clique no ícone.**
 
-- E atualize no HTML via DOM o ícone.
+- Criação de uma função para somar a quantidade de horas de filmes assistidos
 
-- Quando clicar no ícone do filme que não foi assistido se torna ele como assistido
-
-- Se clicar no cíone de um filme assistido torna ele como não assistido que é o estado inicial.
-
-## Exercício 10 [ ]
+## Exercício 10 [x]
 
 - Até aqui você fez tudo dentro de um único arquivo javascript "main.js".
 
